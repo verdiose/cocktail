@@ -1,7 +1,8 @@
 <?php
-
+$step=".66";
 	echo
-	'<form action="" target="_top" method="POST">'
+	'<meter value="'.$step.'" optimum="1">'.$step.'</meter>'
+	.'<form action="" target="_top" method="POST">'
 	.'<fieldset><legend>INGRÉDIENTS</legend>'
 	.'<label for="crea">Concepteur</label>'
 	.'<input type="text" name="crea" autofocus> '

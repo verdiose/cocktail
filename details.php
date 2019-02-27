@@ -11,6 +11,6 @@
 		echo "<td>".$target[$i]["quantI"]."</td>";
 		echo "<td>".$target[$i]["denom"]."</td></tr>";
 	}
-	echo "</table><textarea>{$target[0]['realiz']}</textarea>";
-	
+	echo "</table><q>{$target[0]['realiz']}</q>";
+
 	?>

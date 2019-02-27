@@ -1,0 +1,50 @@
+<!-- ___ S C R E E N ___ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chef, 1 p'tit verre</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="cocktail.css">
+</head>
+<body>
+
+<!-- _1__ ENTÊTE  ___ -->
+	<header>
+		<h3><font color="<?php echo $logC ?>"><?php echo $log ?></font></h3>
+		<h1>_ __ . .. C O K T A I L S .. . __ _</h1>
+	</header>
+
+<!-- _2__ BLOC __PRINCIPAL  ___ -->
+	<main>
+	<!-- _2.1__ LISTE __DES __COCKTAILS ___// __ FORMULAIRES -->
+	<nav>
+		<?php
+		if ($_POST)	{
+			echo $nav;
+		}	else	{
+				foreach ($liRe as $recette)	{
+						echo "<a href='?info="
+						.$recette->idR()."'>"
+						.htmlentities($recette->intit())."</a></br>";
+					}
+		}	?>
+	</nav>
+	<section>
+	<!-- _2.2__ ZONE __DE __RECHERCHE ___ -->
+	<aside>
+		aside
+	</aside>
+
+	<!-- _2.3__ ZONE __DE __RESULTAT ___ -->
+	<article>
+		article
+	</article>
+	</section>
+</main>
+
+	<!-- _3__ CREDITS ___ -->
+	<footer>
+	</p>DataBase > <?php echo $total ?> recettes</p>
+	</footer>
+</body>
+</html>

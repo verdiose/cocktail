@@ -98,4 +98,14 @@ class Commandator	{
 		}
 		return $detR;
 	}
+
+	public function login($log)	{
+		$req = $this->_connect->prepare('SELECT code FROM login WHERE idL=1');
+		$check=$req->execute();
+		var_dump($check);
+		var_dump($log);
+		if ($log == $check) {
+			$_SESSION['admin']=true;
+		}
+	}
 }
