@@ -1,4 +1,4 @@
-		/* GLOBAL */
+/* GLOBAL */
 header, nav, aside, article, footer	{
 	margin: 4px;
 	border: 1px ridge #4AFF6E;
@@ -6,9 +6,11 @@ header, nav, aside, article, footer	{
 h1, nav, aside, article, footer	{
 	padding: 8px;
 }
+html	{
+	position: fixed;
+}
 body	{
 	width: 99vw;	height: 99vh;
-	position: fixed;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-between;
@@ -23,7 +25,7 @@ main	{
 	flex: 5 0 auto;
 }
 
-					/*__1___ TITRAGE */
+/*___1___ TITRAGE */
 header	{
 	display: flex;
 	flex: 1 0 auto;
@@ -50,50 +52,139 @@ h3	{
 	z-index: 1;
 	text-shadow: -1 -1 6px #4AB7FF;
 }
+h4	{
+	font-size: 2em;
+	color: #B74AFF;
+	text-shadow: 0 0 1px #FFFFFF, 0 0 5px #00F7FF;
+}
 
-					/*__2___ VOLET GAUCHE */
+/*___2___ VOLET GAUCHE */
 nav	{
 	background-image: linear-gradient(to left, #051107, #4AB7FF);
 	flex: 1 0 auto;
 }
-meter	{
-	width: 8em;	height: 1.5em;
-	margin: 4em;
-	display: inline-block;
-}
+		/*____2.1___ LISTE __ COCKTAILS */
 nav > a {
+	flex-flow: row wrap;
 	line-height: 1.6em;
 	text-decoration: none;
 	color: #FFFF4A;
 	text-shadow: 0 0 1px #010402, 0 0 5px #4AFF6E;
 }
+		/*____2.2___ ÉDITION - FORMULAIRE */
+meter	{
+	width: 15em;	height: 1.5em;
+	display: inline-block;
+}
+.formP {
+	display: flex;
+	flex-flow: column nowrap;
+}
+.formP > mark	{
+	background-color: #FFFF4A;
+	color: #FF4A6E;
+	border-radius: 5px;
+	margin: auto;
+	padding: 3px;
+	text-align: justify;
+	font-weight: bold;
+}
+.formP > input type=[text]	{
 
-					/*__3___ VOLET DROIT */
+}
+.formP > legend	{
+
+}
+.formP > label	{
+
+}
+#naFoOr, #naFoIn, #naFoRe, #naLiRe	{
+	opacity: 0;
+	transition: opacity 4s ease 2s;
+}
+
+/*___3___ VOLET DROIT */
 section	{
 	display: flex;
 	flex-flow: column nowrap;
 	flex: 1 0 auto;
 }
-	/*__3.1___ RECHERCHE */
+
+/*___>__3.1___ RECHERCHE */
 aside	{
-	background-image: linear-gradient(to top right, #051107, #FF4A6E);
-	flex: 1 0 auto;
+	height: 12em;
+	background-image: url("IMG/Search-icon.png"),
+	linear-gradient(to top right, #051107, #FF4A6E);
+	background-repeat: no-repeat;
+	background-size: contain, cover;
+	background-position: 10% 10%;
+	flex: initial;
 }
-	/*__3.2___ RESULTATS */
-article	{
-	background-image: linear-gradient(to bottom right, #051107, #B74AFF);
-	flex: 2 0 auto;
+form	{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+}
+form>p	{
+	display: flex;
+	flex-flow: row;
+	align-items: flex-end;
+	justify-content: space-between ;
+	width: 30em;
+	margin-left: 5em;
+}
+form>p>label	{
+	margin-right: 1.2em;
+	color: #4AFF6E;
+}
+form>p>input, form>p>select	{
+	width: 15em;	height: 1.5em;
+	color: #651D2B;
+	background: #4AB7FF;
+	text-align: center;
+}
+option	{
+	text-align: center;
+}
+.bSub	{
+	width: 15em; height: 3em;
+	border-radius: 4px;
+	border: 2px inset #FFFF4A;
+	color: #B74AFF;
+	font-weight: bold;
+}
+#bNeo	{
+	background-image: linear-gradient(45deg, #5E97CD, #FFFF4A, #5E97CD);
+	box-shadow: 0 0 2px #9DE8FB, 0 0 8px #41BEDF;
+}
+#bRes	{
+	background-image: linear-gradient( 135deg, #A859CD, #FFFF4A, #A859CD);
+	box-shadow: 0 0 2px #9DE8FB, 0 0 8px #41BEDF;
 }
 
-					/*__4___ CREDITS */
+/*___>__3.2___ RESULTATS */
+article	{
+	background-image: linear-gradient(to bottom right, #051107, #B74AFF);
+	flex: 4 0 auto;
+}
+.detOff	{
+	visibility: hidden;
+}
+.detOn	{
+	visibility: visible;
+}
+
+/*___4___ CREDITS */
 footer	{
 	background-image: radial-gradient(#FFFF4A 50%, #051107);
 	position: sticky;
 	margin-bottom: 2px;
 	flex: 1 0 auto;
+	display: flex;
 }
 
-/* __*		ANIMATIONS		*__ */
+/* ___5___*		ANIMATIONS		*__ */
 @keyframes spin {
 	0% {background-position: 10% 90%;
 			background-size: 100%}

@@ -90,11 +90,11 @@ class Commandator	{
 		return $liOr;	}
 
 	public function details($id)	{
-		$detR;
+		$detR = [];
 		$req = $this->_connect->prepare('SELECT * FROM det1 WHERE idR = :tag');
 		$req->execute([':tag' => $id]);
-		while ($dataR = $req->fetchAll(PDO::FETCH_ASSOC)) {
-			$detR = $dataR;
+		while ($dataR = $req->fetch(PDO::FETCH_ASSOC)) {
+			$detR []= $dataR;
 		}
 		return $detR;
 	}

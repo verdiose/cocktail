@@ -5,46 +5,77 @@
 	<title>Chef, 1 p'tit verre</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="cocktail.css">
+	<script type="text/javascript" src="screen.js"></script>
 </head>
 <body>
 
 <!-- _1__ ENTÊTE  ___ -->
 	<header>
 		<h3><font color="<?php echo $logC ?>"><?php echo $log ?></font></h3>
-		<h1>_ __ . .. C O K T A I L S .. . __ _</h1>
+		<h1>_ __ . .. c O C K T A I L s .. . __ _</h1>
 	</header>
 
 <!-- _2__ BLOC __PRINCIPAL  ___ -->
 	<main>
 	<!-- _2.1__ LISTE __DES __COCKTAILS ___// __ FORMULAIRES -->
 	<nav>
+		<?php var_dump($_POST); ?>
+		<div id="naLiRe" class="formP" style="opacity: 1;">
 		<?php
-		if ($_POST)	{
-			echo $nav;
-		}	else	{
-				foreach ($liRe as $recette)	{
-						echo "<a href='?info="
-						.$recette->idR()."'>"
-						.htmlentities($recette->intit())."</a></br>";
-					}
-		}	?>
+			foreach ($liRe as $recette)	{
+				echo '<a href="?id='.$recette->idR().'" onclick="displayResult()" class="link" id="'.$recette->idR().'">'.htmlentities($recette->intit()).'</a></br>';
+			}
+			echo '</div>';
+			include("formA.php");
+			include("formB.php");
+			include("formC.php");
+?>
+
 	</nav>
 	<section>
 	<!-- _2.2__ ZONE __DE __RECHERCHE ___ -->
 	<aside>
-		aside
-	</aside>
+		<form action="#" method="post">
+			<p>
+				<label for="denom">dénomination</label>
+					<input type="text" name="denom" id="denom"
+					placeholder="__Intitulé"/></br></p>
+					<p><select id="ingr" name="ingr">
+						<option value="">- ingrédient -</option>
+						<?php
+						foreach($liIn as $ingre) {
+							echo '<option value="'.$ingre->lib().'">'.$ingre->lib().'</option>';	}	?>
+					</select>
+					<select id="ori" name="ori">
+						<option value="">- origine -</option>
+						<?php
+						foreach($liOr as $ori) {
+							echo '<option value="'.$ori->pays().'">'.$ori->pays().'</option>';	}	?>
+					</select></br></p>
+				<!-- <p><label for="login">ADMIN</label>
+					<input type="text" name="code" id="login"
+						placeholder="__code"/></p> -->
+			<p><input type="submit" value=" N E W " id="bNeo" name="bNeo" class="bSub" />
+			<input type="submit" value=" FIND " id="bRes" name="bRes" class="bSub" /></p>
+
+	</form>
+</aside>
 
 	<!-- _2.3__ ZONE __DE __RESULTAT ___ -->
-	<article>
-		article
+	<article id="art">
+		<div id="det" class="detOn">
+			<?php include('details.php'); ?>
+		</div>
 	</article>
 	</section>
 </main>
 
 	<!-- _3__ CREDITS ___ -->
 	<footer>
-	</p>DataBase > <?php echo $total ?> recettes</p>
+	<p><?php
+		if (isset($message)) {echo $message;} ?></p>
+		</p>DataBase > <?php echo $total ?> recettes</p>
 	</footer>
 </body>
+
 </html>

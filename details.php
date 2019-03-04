@@ -1,6 +1,8 @@
 <?php
+var_dump($target);
+if ($target) {
 
-	echo "<table><caption>{$target[0]['intit']}</caption>"
+	echo "<table id='details'><caption>{$target[0]['intit']}</caption>"
 	."<tr><td>{$target[0]['annee']}</td>"
 	."<td>{$target[0]['pays']}</td>"
 	."<td>{$target[0]['createur']}</td></tr>";
@@ -12,5 +14,5 @@
 		echo "<td>".$target[$i]["denom"]."</td></tr>";
 	}
 	echo "</table><q>{$target[0]['realiz']}</q>";
-
+}
 	?>

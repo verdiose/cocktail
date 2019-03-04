@@ -59,33 +59,14 @@ if (isset($_GET['info']))	{
 	$target="";}
 
 // __ GESTION  _  des  _  AFFICHAGES  __
-if (isset($_POST)) {
-	$nav;
-	foreach ($_POST as $key => $value) {
-		switch ($value) {
-			case 'neo':
-				$nav=include('formA.php');
-				var_dump($value);	break;
-
-			case 'formA':
-				$nav=include('formB.php');
-				var_dump($value);	break;
-
-			case 'formB':
-				$nav=include('formC.php');
-				var_dump($value);	break;
-
-			default:
-				foreach ($liRe as $recette)	{
-					$nav[] = '<a href="?info='
-					.$recette->idR().'">'
-					.htmlentities($recette->intit()). '</a></br>';
-					var_dump($recette);
-				}	break;
-		}
-	}
-}
-
-
 
 include('screen.html');
+if (isset($_POST['bNeo'])) {
+	switchNav("naFoOr");
+}	elseif (isset($_POST['bFoOr'])) {
+	switchNav("naFoIn");
+}	elseif (isset($_POST['bFoIn'])) {
+	switchNav("naFoRe");
+}	elseif (isset($_POST['bFoRe']) || !isset($_POST)) {
+	switchNav("naLiRe");
+}

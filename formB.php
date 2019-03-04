@@ -1,23 +1,32 @@
 <?php
-$step=".66";
+if (isset($_POST['bFoOr'])) {
+
 	echo
-	'<meter value="'.$step.'" optimum="1">'.$step.'</meter>'
-	.'<form action="" target="_top" method="POST">'
-	.'<fieldset><legend>INGRÉDIENTS</legend>'
-	.'<label for="crea">Concepteur</label>'
-	.'<input type="text" name="crea" autofocus> '
-	.'<label for="land">Pays</label>'
-	.'<input type="text" name="land"> '
-	.'<label for="year">Année</label>'
-	.'<input type="text" name="year"></fieldset>'
+	'<div id="naFoIn" class="formP" style="opacity:1;">'
+	.'<form action="#" method="POST">'
+	.'<h4>Étape 2 / 3</h4>'
+	.'<meter value=".66" optimum="1">2 / 3</meter>'
+	.'<fieldset><legend>INGRÉDIENTS</legend>';
+	for ($i=1; $i <=$_POST['nbIn'] ; $i++) {
+		echo
+	'<label for="nbI">Ingrédient N°'.$i.'</label>'
+	.'<input type="text" id="nbI" name="ing'.$i.'">';
+	}
+	echo '</fieldset>';
 
-	.'<fieldset><legend>AGRÉMENTS</legend>'
-	.'<label for="nbI">Nombre d\'ingrédient</label>'
-	.'<input type="text" name="nbI"> '
-	.'<label for="nbA">Nombre d\'agrément</label>'
-	.'<input type="text" name="nbA"></fieldset>'
-
-	.'<input type="submit" value="N E X T" name="formA"></fieldset>'
-	.'</form>';
-
+	if ($_POST['nbAg']!="0") {
+		echo '<fieldset><legend>AGRÉMENTS</legend>';
+		for ($j=1; $j <=$_POST['nbAg'] ; $j++) {
+			echo
+			'<label for="nbA">Agrément N°'.$j.'</label>'
+			.'<input type="text" id="nbA" name="agr'.$j.'">';
+		}
+		echo '</fieldset>';
+	}
+	echo
+	'<button value="N E X T" name="bFoIn" id="bFoIn" class="bSub">'
+	.'N E X T</button>'
+	.'</form>'
+	.'</div>';
+}
 	?>
